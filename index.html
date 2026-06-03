@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPM Cafe & Hub - Revolution Per Meal</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header id="navbar">
+        <a href="#" class="logo"><i class="fa-solid fa-gauge-high"></i> RPM<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#branches">Branches</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Where Petrolheads Meet <span>Revolution</span></h1>
+            <p>RPM (Revolution Per Meal) adalah epicentre bertemunya energi komunitas otomotif, modifikasi, dan gaya hidup bernada tinggi. Menyatukan setiap detak rotasi mesin dan racikan kuliner premium.</p>
+            <div class="btn-container">
+                <a href="#menu" class="btn btn-primary">Check Our Menu</a>
+                <a href="https://www.instagram.com/revolutionpermeal_/?hl=en" target="_blank" class="btn btn-secondary"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about reveal">
+        <div class="about-text">
+            <h3 class="about-tagline">About RPM</h3>
+            <h2>The Ultimate Garage Community Hub</h2>
+            <p>RPM hadir bukan sekadar kafe biasa. Kami adalah titik temu bagi para pecinta otomotif, komunitas modifikasi, pembalap, dan pencari atmosfer unik. Dengan konsep modern industrial garage yang maskulin dan berenergi tinggi, kami menyajikan ruang di mana obrolan seputar mesin, jalanan, dan relaksasi bisa mengalir tanpa batas.</p>
+            
+            <div class="about-features">
+                <div class="feature-item">
+                    <i class="fa-solid fa-gas-pump"></i>
+                    <div>
+                        <h4>High-Octane Hospitality</h4>
+                        <p>Pelayanan cepat, ramah, dan atmosfer hangat yang bikin betah nongkrong berjam-jam.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-car-rear"></i>
+                    <div>
+                        <h4>Car & Bike Meet Ready</h4>
+                        <p>Area parkir luas dan ramah untuk mobil modifikasi atau motor besar (moge) saat sunmori / night ride.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <div>
+                        <h4>Automotive Lifestyle</h4>
+                        <p>Dekorasi bernuansa komponen mesin, part balap, dan grafis industrial modern yang estetik.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="about-carousel-container">
+            <div class="carousel-slider">
+                <div class="carousel-slide active">
+                    <img src="images/carousel-1.jpg" alt="RPM Automotive Ambience 1">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/carousel-2.jpg" alt="RPM Automotive Ambience 2">
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/carousel-3.jpg" alt="RPM Automotive Ambience 3">
+                </div>
+            </div>
+            
+            <button class="carousel-btn prev-btn" id="prevBtn"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="carousel-btn next-btn" id="nextBtn"><i class="fa-solid fa-chevron-right"></i></button>
+            
+            <div class="carousel-dots" id="carouselDots">
+                </div>
+        </div>
+    </section>
+
+    <section id="branches" class="branches reveal">
+        <div class="section-title">
+            <h2>Our Pit Stops</h2>
+        </div>
+        <div class="branches-grid">
+            <div class="branch-card">
+                <i class="fa-solid fa-city"></i>
+                <h3>RPM Pantai Indah Kapuk</h3>
+                <p>Kawasan pesisir hits Jakarta. Tempat berkumpulnya supercar, sports car, dan car enthusiast ibu kota untuk melepas penat di akhir pekan.</p>
+                <span class="branch-tag">PIK, Jakarta</span>
+            </div>
+            <div class="branch-card">
+                <i class="fa-solid fa-mountain-sun"></i>
+                <h3>RPM Bandung</h3>
+                <p>Destinasi sejuk di dataran tinggi. Menjadi titik kumpul favorit komunitas motor, mobil, dan penikmat kopi setelah melewati rute riding yang berliku.</p>
+                <span class="branch-tag">Ciseureuh, Kota Bandung, Jawa Barat</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="specialties reveal">
+        <div class="section-title">
+            <h2>Revolution Menu</h2>
+            <p style="color: var(--text-muted); margin-top: 25px;">Pilih cabang untuk melihat katalog menu lengkap kami</p>
+        </div>
+
+        <div class="menu-tabs">
+            <button class="tab-btn active" id="tab-pik-btn"><i class="fa-solid fa-location-dot"></i> Cabang PIK (Jakarta)</button>
+            <button class="tab-btn" id="tab-bandung-btn"><i class="fa-solid fa-location-dot"></i> Cabang Bandung</button>
+        </div>
+
+        <div id="menu-pik" class="menu-content-wrap active">
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div class="menu-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                    <h3>PIK Signature Coffee</h3>
+                    <p>Racikan kopi premium khas pesisir Jakarta dengan tingkat keasaman seimbang, pas nemenin obrolan otomotif.</p>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-icon"><i class="fa-solid fa-burger"></i></div>
+                    <h3>Heavy Meals & Grills</h3>
+                    <p>Steak, Burger juicy besar, dan makanan berat penuh rasa untuk memulihkan tenagamu pasca-touring.</p>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-icon"><i class="fa-solid fa-glass-water"></i></div>
+                    <h3>Refresher Mocktails</h3>
+                    <p>Minuman dingin bersoda dengan sensasi buah segar yang siap mendinginkan tenggorokan dari teriknya Jakarta.</p>
+                </div>
+            </div>
+            <div class="menu-action-box">
+                <a href="https://drive.google.com/file/d/1m-co70D9KUADgcDeL028vrrmknymHdz1/view" target="_blank" class="btn btn-primary"><i class="fa-solid fa-file-pdf"></i> Buka Buku Menu Lengkap PIK</a>
+            </div>
+        </div>
+
+        <div id="menu-bandung" class="menu-content-wrap">
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div class="menu-icon"><i class="fa-solid fa-whiskey-glass"></i></div>
+                    <h3>Bandung Manual Brew</h3>
+                    <p>Seduhan kopi manual menggunakan biji kopi lokal pilihan Jawa Barat, cocok dengan udara dingin Bandung.</p>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-icon"><i class="fa-solid fa-hotdog"></i></div>
+                    <h3>Garage Light Bites</h3>
+                    <p>Camilan hangat berlemak, piring saji sharing, cocok dikunyah bareng komunitas pas nongkrong malam.</p>
+                </div>
+                <div class="menu-card">
+                    <div class="menu-icon"><i class="fa-solid fa-mug-saucer"></i></div>
+                    <h3>Warm Comfort Drinks</h3>
+                    <p>Opsi minuman non-coffee hangat, cokelat pekat, dan artisan tea penakluk dinginnya kota kembang.</p>
+                </div>
+            </div>
+            <div class="menu-action-box">
+                <a href="https://drive.google.com/file/d/18jIfVgEfXID-f7T4_BR1nR_kZsjhYAD0/view" target="_blank" class="btn btn-primary"><i class="fa-solid fa-file-pdf"></i> Buka Buku Menu Lengkap Bandung</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="stats-bar">
+        <div class="stat-item">
+            <h3>2</h3>
+            <p>Active Branch Pit Stops</p>
+        </div>
+        <div class="stat-item">
+            <h3>7500+</h3>
+            <p>Rpm Revs Per Meal Served</p>
+        </div>
+        <div class="stat-item">
+            <h3>500+</h3>
+            <p>Automotive Clubs Connected</p>
+        </div>
+        <div class="stat-item">
+            <h3>100%</h3>
+            <p>High-Octane Vibes</p>
+        </div>
+    </div>
+
+    <section id="contact" class="contact reveal">
+        <div class="contact-info">
+            <div class="section-title contact-title-align">
+                <h2>Get In Touch</h2>
+            </div>
+            <p class="contact-desc">Mau booking tempat untuk kopdar komunitas mobil/motor, gathering club, atau sekadar reservasi? Hubungi tim RPM!</p>
+            
+            <div class="contact-map-grid">
+                <div class="contact-map-card">
+                    <div class="contact-map-header">
+                        <div class="contact-map-header-row">
+                            <h4>Jakarta Map</h4>
+                            <a href="https://www.google.com/maps/place/Revolution+Per+Meal+(RPM)+-+PIK+2/@-6.0462181,106.6960363,17z/data=!3m1!4b1!4m6!3m5!1s0x2e6a05002c0d256d:0x62c6a8aeb345caf8!8m2!3d-6.0462181!4d106.6960363!16s%2Fg%2F11yz5_d40r?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="map-redirect-btn" aria-label="Buka Jakarta di Google Maps">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                        <p>Golf Island PIK, Jakarta Utara</p>
+                    </div>
+                    <div id="map-jakarta" class="contact-map" aria-label="Peta lokasi RPM Jakarta"></div>
+                </div>
+                <div class="contact-map-card">
+                    <div class="contact-map-header">
+                        <div class="contact-map-header-row">
+                            <h4>Bandung Map</h4>
+                            <a href="https://www.google.com/maps/place/Revolution+Per+Meal+(RPM)/@-6.9451642,107.6103234,17z/data=!3m1!4b1!4m6!3m5!1s0x2e68e9004316aa5d:0x21b297fa8b73cfda!8m2!3d-6.9451695!4d107.6128983!16s%2Fg%2F11yfz4trkv?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="map-redirect-btn" aria-label="Buka Bandung di Google Maps">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                        <p>Jalan Sriwijaya No. 111, Kota Bandung</p>
+                    </div>
+                    <div id="map-bandung" class="contact-map" aria-label="Peta lokasi RPM Bandung"></div>
+                </div>
+            </div>
+
+            <div class="contact-sub-details">
+                <div class="info-box-mini">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <h4>Phone / WhatsApp</h4>
+                        <p>+62 812-3456-7890</p>
+                    </div>
+                </div>
+                <div class="info-box-mini info-box-mini-hours">
+                    <i class="fa-solid fa-clock"></i>
+                    <div>
+                        <h4>Operational Hours</h4>
+                        <p><strong>PIK:</strong> Mon-Fri 10:00 - 22:00 | Fri-Sat 09:00 - 00:00 | Sun 07:00 - 21:00</p>
+                        <p><strong>Bandung:</strong> Sun-Wed 10:00 - 22:00 | Tue-Sat 10:00 - 01:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h3 class="form-title">Send Message</h3>
+            <form id="rpmForm">
+                <div class="form-group">
+                    <input type="text" placeholder="Nama Lengkap / Nama Komunitas" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Alamat Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea rows="5" placeholder="Tuliskan pesanmu atau rencana agenda kopdar komunitasmu di sini..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-socials">
+            <a href="https://www.instagram.com/revolutionpermeal_/?hl=en" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+        <p>&copy; 2026 RPM - Revolution Per Meal. Made with <i class="fa-solid fa-heart"></i> for Car, Bike & Coffee Enthusiasts.</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="script.js"></script>
+</body>
+</html>
